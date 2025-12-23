@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Timeout Airline - Book Your Flight</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <div style="display: flex; justify-content: flex-end; margin-bottom: 10px;">
+        <a href="admin.html" style="text-decoration: none; color: #007bff; font-weight: bold; font-size: 0.9rem; border: 1px solid #007bff; padding: 5px 10px; border-radius: 4px; transition: 0.3s;">
+            ⚙️ Staff Dashboard
+        </a>
+    </div>
+
+    <h1>✈️ Timeout Airline</h1>
+
+    <div id="search-section">
+        <h2>Find a Flight</h2>
+        <div class="form-group">
+            <label>Departure City</label>
+            <input type="text" id="fromCity" placeholder="e.g. Paris" value="Paris">
+        </div>
+        <div class="form-group">
+            <label>Destination City</label>
+            <input type="text" id="toCity" placeholder="e.g. London" value="London">
+        </div>
+        <div class="form-group">
+            <label>Date</label>
+            <input type="date" id="flightDate" value="2025-12-25">
+        </div>
+        <button onclick="searchFlights()">Search Flights</button>
+    </div>
+
+    <div id="results-section" style="display:none;">
+        <h3>Available Flights</h3>
+        <table id="flightsTable">
+            <thead>
+            <tr>
+                <th>Flight #</th>
+                <th>Time</th>
+                <th>Price (Eco)</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+</div>
+
+<div id="bookingModal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h2>Complete Booking</h2>
+        <p>Booking Flight: <strong id="selectedFlight"></strong></p>
+
+        <input type="text" id="fname" placeholder="First Name">
+        <input type="text" id="lname" placeholder="Last Name">
+        <input type="text" id="passport" placeholder="Passport Number">
+        <input type="date" id="birthdate">
+        <select id="seatType">
+            <option value="ECONOMY">Economy</option>
+            <option value="FIRST_CLASS">First Class</option>
+        </select>
+
+        <button onclick="confirmBooking()">Confirm & Pay</button>
+    </div>
+</div>
+
+<div id="message"></div>
+
+<script src="app.js"></script>
+
+</body>
+</html>
